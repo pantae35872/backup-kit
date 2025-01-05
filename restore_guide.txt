@@ -1,0 +1,5 @@
+sfdisk /dev/nvme0n1 < part_table
+vgcfgrestore -f /mnt/backup/volgroup_backup volgroup0
+fsarchiver restfs /mnt/backup/lv_home.fsa id=0,dest=/dev/mapper/volgroup0-lv_home
+fsarchiver restfs /mnt/backup/lv_root.fsa id=0,dest=/dev/mapper/volgroup0-lv_root
+fsarchiver restfs /mnt/backup/lv_swap.fsa id=0,dest=/dev/mapper/volgroup0-lv_swap
